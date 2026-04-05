@@ -38,6 +38,12 @@ The system prioritises **patient safety, system reliability, and clinical effici
 - 💭 **[REFLECTION.md](./REFLECTION.md)**  
   Analysis of stakeholder conflicts and trade-off decisions in requirements engineering
 
+- 🏃 **[AGILE_PLANNING.md](./AGILE_PLANNING.md)**  
+  User stories, MoSCoW product backlog, and Sprint 1 plan
+
+- 🔄 **[AGILE_REFLECTION.md](./AGILE_REFLECTION.md)**  
+  Reflection on Agile planning challenges as a solo developer
+
 ---
 
 ## 🚀 Core System Capabilities
