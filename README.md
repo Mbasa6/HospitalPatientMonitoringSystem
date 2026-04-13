@@ -44,12 +44,12 @@ The system prioritises **patient safety, system reliability, and clinical effici
 - 🔄 **[AGILE_REFLECTION.md](./AGILE_REFLECTION.md)**  
   Reflection on Agile planning challenges as a solo developer
 
-- 📊 **[template_analysis.md](./template_analysis.md)**  
+- 📊 **[template_analysis.md](./TEMPLATE_ANALYSIS.md)**  
   Comparison of GitHub project templates and justification for Automated Kanban selection
 
-- 🗂️ **[kanban_explanation.md](./kanban_explanation.md)**  
+- 🗂️ **[kanban_explanation.md](./KANBAN_EXPLANATION.md)**  
   Definition and purpose of the HPMS Kanban board and customization choices
-  
+
 ---
 
 ## 🚀 Core System Capabilities
