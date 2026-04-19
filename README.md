@@ -50,6 +50,15 @@ The system prioritises **patient safety, system reliability, and clinical effici
 - 🗂️ **[kanban_explanation.md](./KANBAN_EXPLANATION.md)**  
   Definition and purpose of the HPMS Kanban board and customization choices
 
+- 🔄 **[STATE_DIAGRAMS.md](./STATE_DIAGRAMS.md)**  
+  UML state transition diagrams for 8 core system objects
+
+- 🔀 **[ACTIVITY_DIAGRAMS.md](./ACTIVITY_DIAGRAMS.md)**  
+  UML activity workflow diagrams for 8 core system workflows
+
+- 💭 **[modeling_reflection.md](./modeling_reflection.md)**  
+  Reflection on state and activity diagram modeling challenges
+
 ---
 
 ## 🚀 Core System Capabilities
