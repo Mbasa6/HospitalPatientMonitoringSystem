@@ -117,8 +117,8 @@ Every vital reading follows this lifecycle from ingestion to archival. The **Rej
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Default : System loads default thresholds on startup
-    Default --> Active : Threshold applied to patient monitoring
+    [*] --> SystemDefault : System loads default thresholds on startup
+    SystemDefault --> Active : Threshold applied to patient monitoring
     Active --> OverriddenByDoctor : Doctor sets patient-specific threshold (FR-04)
     OverriddenByDoctor --> Active : Doctor removes override [reverts to default]
     Active --> Updated : Admin updates system-wide default
