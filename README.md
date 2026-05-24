@@ -313,3 +313,5 @@ For assignment evidence screenshots, capture:
 3. A failing check that blocks merge (optional PR intentionally failing test)
 4. A successful run on `main` showing uploaded `hpms-jar` artifact
 
+
+<!-- PR demo for CI check evidence -->
