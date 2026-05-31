@@ -10,7 +10,7 @@ This document records the peer engagement received during the Assignment 14 open
 |---|---|
 | GitHub Stars | 21 |
 | GitHub Forks | 28 |
-| PRs from peers | 0 |
+| PRs from peers | 1 |
 | Issues opened by peers | 0 |
 
 ---
@@ -23,6 +23,7 @@ Peers engaged primarily through stars and forks shared via the class forum. No w
 |---|---|
 | Class peers (via forum) | Repository was easy to navigate and well documented. |
 | Class peers (via forks) | 28 forks indicate peers used the repository as a reference or starting point. |
+| PR reviewer (GitHub) | "Excellent" — comment left on A14 PR approval. |
 
 ---
 
