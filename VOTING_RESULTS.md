@@ -17,7 +17,7 @@ This document records the peer engagement received during the Assignment 14 open
 
 ## Peer Feedback Summary
 
-Peers engaged primarily through stars and forks shared via the class forum. No written comments were submitted directly on GitHub during the review period. The star and fork counts reflect overall positive reception of the repository structure, documentation, and CI/CD setup.
+Peers engaged through stars, forks, and a pull request review. One written comment was submitted directly on GitHub during the A14 PR review. The star and fork counts reflect overall positive reception of the repository structure, documentation, and CI/CD setup.
 
 | Reviewer | Feedback |
 |---|---|
