@@ -1,5 +1,6 @@
 package com.hpms.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,7 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class Patient {
+public class Patient implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final UUID patientId;
     private final String firstName;
     private final String lastName;
