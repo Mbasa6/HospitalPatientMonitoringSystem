@@ -1,11 +1,14 @@
 package com.hpms.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
-public class VitalReading {
+public class VitalReading implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final UUID readingId;
     private final UUID patientId;
     private final double heartRate;

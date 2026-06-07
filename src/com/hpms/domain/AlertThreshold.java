@@ -1,10 +1,13 @@
 package com.hpms.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class AlertThreshold {
+public class AlertThreshold implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final UUID thresholdId;
     private UUID patientId;
     private final String vitalType;

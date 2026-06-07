@@ -1,9 +1,12 @@
 package com.hpms.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Alert {
+public class Alert implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final UUID alertId;
     private final UUID patientId;
     private final UUID vitalReadingId;
