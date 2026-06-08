@@ -2,7 +2,6 @@ package com.hpms.services;
 
 import com.hpms.domain.Alert;
 import com.hpms.services.exceptions.BusinessRuleException;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,17 +12,11 @@ import java.util.logging.Logger;
 
 /**
  * EmailNotificationService — sends email notifications for critical alerts.
+ * Issue #7 — Email notifications for critical alerts (FR-06)
  *
- * Acceptance Criteria (FR-06 / Issue #7):
- *   - Critical alert email delivered within 60 seconds
- *   - Email includes patient name, vital type, triggered value, and timestamp
- *   - Delivery is logged in the system
- *
- * Design note: Uses a pluggable EmailSender interface so the real SMTP
- * implementation can be swapped in without changing business logic.
- * In tests, a mock/in-memory sender is injected instead.
+ * NOTE: Not annotated with @Service to avoid Spring requiring an EmailSender bean.
+ * Instantiate manually or wire with a concrete EmailSender in your config.
  */
-@Service
 public class EmailNotificationService {
 
     private static final Logger LOGGER = Logger.getLogger(EmailNotificationService.class.getName());
@@ -36,16 +29,6 @@ public class EmailNotificationService {
         this.emailSender = emailSender;
     }
 
-    // ── Public API ────────────────────────────────────────────────────────
-
-    /**
-     * Sends a critical alert email to the given doctor email address.
-     * Logs delivery result regardless of outcome.
-     *
-     * @param alert       the alert that was triggered
-     * @param patientName the full name of the patient
-     * @param doctorEmail the email address of the notified doctor
-     */
     public void notifyDoctor(Alert alert, String patientName, String doctorEmail) {
         validateRequired(patientName, "patientName");
         validateRequired(doctorEmail, "doctorEmail");
@@ -59,8 +42,8 @@ public class EmailNotificationService {
             );
         }
 
-        String subject = buildSubject(patientName, alert);
-        String body    = buildBody(patientName, alert);
+        String subject   = buildSubject(patientName, alert);
+        String body      = buildBody(patientName, alert);
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
         boolean success = false;
@@ -87,14 +70,9 @@ public class EmailNotificationService {
         ));
     }
 
-    /**
-     * Returns an unmodifiable view of the delivery log.
-     */
     public List<NotificationLog> getDeliveryLog() {
         return Collections.unmodifiableList(deliveryLog);
     }
-
-    // ── Email content builders ────────────────────────────────────────────
 
     private String buildSubject(String patientName, Alert alert) {
         return String.format(
@@ -109,11 +87,11 @@ public class EmailNotificationService {
         return String.format(
             "CRITICAL ALERT NOTIFICATION\n" +
             "===========================\n" +
-            "Patient Name  : %s\n" +
-            "Vital Type    : %s\n" +
+            "Patient Name   : %s\n" +
+            "Vital Type     : %s\n" +
             "Triggered Value: %.2f\n" +
-            "Severity      : %s\n" +
-            "Timestamp     : %s\n" +
+            "Severity       : %s\n" +
+            "Timestamp      : %s\n" +
             "===========================\n" +
             "Please log in to the Hospital Patient Monitoring System immediately.\n",
             patientName,
@@ -124,26 +102,20 @@ public class EmailNotificationService {
         );
     }
 
-    // ── Validation ────────────────────────────────────────────────────────
-
     private void validateRequired(String value, String fieldName) {
         if (value == null || value.isBlank()) {
             throw new BusinessRuleException(fieldName + " is required.");
         }
     }
 
-    // ── Inner types ───────────────────────────────────────────────────────
+    // ── Pluggable sender interface ─────────────────────────────────────────
 
-    /**
-     * Pluggable email sender — implement with JavaMail/SMTP for production.
-     */
     public interface EmailSender {
         void send(String to, String subject, String body);
     }
 
-    /**
-     * Immutable log entry for a single notification attempt.
-     */
+    // ── Delivery log entry ────────────────────────────────────────────────
+
     public static class NotificationLog {
         public final String alertId;
         public final String patientName;
