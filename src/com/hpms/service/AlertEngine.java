@@ -46,6 +46,10 @@ public class AlertEngine {
     public void dispatchNotification(Alert alert) {
         UUID defaultOnCall = UUID.fromString("00000000-0000-0000-0000-000000000002");
         notificationService.sendInAppNotification(defaultOnCall, alert);
+        
+        if ("CRITICAL".equals(alert.getSeverity())) {
+            notificationService.sendEmailNotification("emergency@hospital.com", alert);
+        }
     }
 
     private boolean isBreached(VitalReading reading, AlertThreshold threshold) {

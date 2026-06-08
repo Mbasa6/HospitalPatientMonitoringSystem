@@ -315,3 +315,91 @@ For assignment evidence screenshots, capture:
 
 
 <!-- PR demo for CI check evidence -->
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Java 17 (Temurin or Oracle JDK)
+- Maven 3.8+
+- Git
+
+Verify your setup:
+```bash
+java -version   # should show 17.x
+mvn -version    # should show 3.8+
+```
+
+### Clone and Build
+
+```bash
+git clone https://github.com/Mbasa6/HospitalPatientMonitoringSystem.git
+cd HospitalPatientMonitoringSystem
+```
+
+### Run All Tests
+
+```bash
+mvn clean test
+```
+
+Expected output: `BUILD SUCCESS` with 23 tests passing. JaCoCo coverage report generated at `target/site/jacoco/index.html`.
+
+### Run the REST API
+
+```bash
+mvn spring-boot:run
+```
+
+Then open the interactive Swagger UI:
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+---
+
+## Contributing
+
+We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, coding standards, and the PR process.
+
+See [ROADMAP.md](ROADMAP.md) for planned features you can help build.
+
+### Features Available for Contribution
+
+| Issue # | Feature | Labels | Difficulty |
+|---|---|---|---|
+| #31 | Add email notifications for critical vitals | `feature-request`, `good first issue` | Beginner |
+| #32 | Add JWT authentication to API endpoints | `feature-request` | Intermediate |
+| #33 | Write integration test for AlertService threshold | `feature-request`, `good first issue` | Beginner |
+
+Browse [open issues](https://github.com/Mbasa6/HospitalPatientMonitoringSystem/issues) and pick one labelled `good first issue` to get started.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Assignment 14 Implementation (Peer Review, Onboarding, and Open-Source Collaboration)
+
+### Deliverables
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — Contributor guide (setup, coding standards, PR process)
+- [`ROADMAP.md`](ROADMAP.md) — Planned features mapped to open issues
+- [`LICENSE`](LICENSE) — MIT License
+- [`VOTING_RESULTS.md`](VOTING_RESULTS.md) — Peer engagement evidence (stars, forks, feedback)
+- [`REFLECTION_A14.md`](REFLECTION_A14.md) — 500-word reflection on open-source collaboration
+
+### Issue Labels Applied
+
+The following GitHub issues have been labelled for contributors:
+
+| Issue # | Title | Labels |
+|---|---|---|
+| #31 | Add email notifications for critical vitals | `feature-request`, `good first issue` |
+| #32 | Add JWT authentication to API endpoints | `feature-request` |
+| #33 | Write integration test for AlertService threshold | `feature-request`, `good first issue` |
