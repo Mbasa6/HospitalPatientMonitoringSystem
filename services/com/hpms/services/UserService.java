@@ -12,9 +12,11 @@ import java.util.UUID;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final com.hpms.security.JwtUtil jwtUtil; 
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, com.hpms.security.JwtUtil jwtUtil) {
         this.userRepository = userRepository;
+        this.jwtUtil = jwtUtil;
     }
 
     public User createUser(String firstName,
@@ -70,4 +72,18 @@ public class UserService {
             throw new BusinessRuleException(fieldName + " is required.");
         }
     }
+    public String authenticateAndGenerateToken(String email, String password) {
+        User user = userRepository.findAll().stream()
+                .filter(u -> u.getEmail().equals(email))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid credentials."));
+
+        // Use their existing domain logic to validate password and update login attempts
+        user.login(email, password);
+        userRepository.save(user);
+
+        // Return the real JWT instead of the dummy domain token
+        return jwtUtil.generateToken(user.getEmail(), user.getRole());
+    }
+
 }
